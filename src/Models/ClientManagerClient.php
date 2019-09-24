@@ -8,7 +8,7 @@ use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
 
-class Client extends Model implements HasMedia
+class ClientManagerClient extends Model implements HasMedia
 {
     use HasMediaTrait;
 
@@ -23,7 +23,7 @@ class Client extends Model implements HasMedia
      */
     public function testimonials(): HasMany
     {
-        return $this->hasMany(Testimonial::class);
+        return $this->hasMany(ClientManagerTestimonial::class);
     }
 
     /**

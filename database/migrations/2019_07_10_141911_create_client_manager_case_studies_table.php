@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CaseStudiesTable extends Migration
+class CreateClientManagerCaseStudiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CaseStudiesTable extends Migration
      */
     public function up()
     {
-
-        Schema::create('case_studies', function (Blueprint $table) {
+        Schema::create('client_manager_case_studies', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('client_manager_client_id');
             $table->string('title');
             $table->text('preview_content');
             $table->text('content');
@@ -32,6 +31,6 @@ class CaseStudiesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('case_studies');
+        Schema::drop('client_manager_case_studies');
     }
 }

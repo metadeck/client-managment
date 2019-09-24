@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class Sector extends Model implements HasMedia
+class ClientManagerSector extends Model implements HasMedia
 {
     use HasMediaTrait;
 
@@ -19,7 +19,7 @@ class Sector extends Model implements HasMedia
      */
     public function clients()
     {
-        return $this->belongsToMany(Client::class, 'client_sector')
+        return $this->belongsToMany(ClientManagerClient::class, 'client_manager_client_sector')
             ->withPivot('order');
     }
 

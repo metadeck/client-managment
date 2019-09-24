@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class Testimonial extends Model implements HasMedia
+class ClientManagerTestimonial extends Model implements HasMedia
 {
     use HasMediaTrait;
 
@@ -21,7 +21,7 @@ class Testimonial extends Model implements HasMedia
      */
     public function client()
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(ClientManagerClient::class);
     }
 
     /**

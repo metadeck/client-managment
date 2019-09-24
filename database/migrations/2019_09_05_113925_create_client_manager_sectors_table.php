@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSectorsTable extends Migration
+class CreateClientManagerSectorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreateSectorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sectors', function (Blueprint $table) {
+        Schema::create('client_manager_sectors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->text('description');
             $table->timestamps();
         });
 
-        Schema::create('client_sector', function (Blueprint $table) {
-            $table->unsignedBigInteger('client_id');
-            $table->unsignedBigInteger('sector_id');
+        Schema::create('client_manager_client_sector', function (Blueprint $table) {
+            $table->unsignedBigInteger('client_manager_client_id');
+            $table->unsignedBigInteger('client_manager_sector_id');
             $table->integer('order')->default(0);
-            $table->primary(['client_id', 'sector_id']);
+            $table->primary(['client_manager_client_id', 'client_manager_sector_id']);
         });
     }
 
@@ -35,7 +35,7 @@ class CreateSectorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sectors');
-        Schema::dropIfExists('client_sector');
+        Schema::dropIfExists('client_manager_sectors');
+        Schema::dropIfExists('client_manager_client_sector');
     }
 }

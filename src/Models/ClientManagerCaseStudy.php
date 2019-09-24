@@ -7,7 +7,7 @@ use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\Tags\HasTags;
 
-class CaseStudy extends Model implements HasMedia
+class ClientManagerCaseStudy extends Model implements HasMedia
 {
 
     use HasMediaTrait, HasTags;
@@ -21,7 +21,7 @@ class CaseStudy extends Model implements HasMedia
 
     public function client()
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(ClientManagerClient::class);
     }
 
     /**
