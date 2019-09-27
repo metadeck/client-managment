@@ -16,7 +16,7 @@ class Client extends Model implements HasMedia
     protected $table = "client_manager_clients";
 
     protected $fillable = [
-        'title'
+        'name'
     ];
 
     /**
