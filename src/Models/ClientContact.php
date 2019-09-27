@@ -15,25 +15,15 @@ class ClientContact extends Model implements HasMedia
     protected $table = "client_manager_client_contacts";
 
     protected $fillable = [
-        'name'
+        'name', 'email', 'position'
     ];
-
-    /**
-     * The tesimonials from this client
-     *
-     * @return HasMany
-     */
-    public function testimonials(): HasMany
-    {
-        return $this->hasMany(Testimonial::class);
-    }
 
     /**
      * Register a media collection for the user profile image
      */
     public function registerMediaCollections()
     {
-        $this->addMediaCollection('client_logo')->singleFile();
+        $this->addMediaCollection('contact_image')->singleFile();
     }
 
     /**
