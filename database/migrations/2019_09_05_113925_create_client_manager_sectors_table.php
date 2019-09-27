@@ -24,7 +24,7 @@ class CreateClientManagerSectorsTable extends Migration
             $table->unsignedBigInteger('client_manager_client_id');
             $table->unsignedBigInteger('client_manager_sector_id');
             $table->integer('order')->default(0);
-            $table->primary(['client_manager_client_id', 'client_manager_sector_id']);
+            $table->primary(['client_manager_client_id', 'client_manager_sector_id'], 'client_id_sector_id');
         });
     }
 
