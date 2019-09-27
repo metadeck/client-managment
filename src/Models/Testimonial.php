@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class ClientManagerTestimonial extends Model implements HasMedia
+class Testimonial extends Model implements HasMedia
 {
     use HasMediaTrait;
+
+    protected $table = "client_manager_testimonials";
 
     protected $fillable = [
         'employee_name',
@@ -21,7 +23,7 @@ class ClientManagerTestimonial extends Model implements HasMedia
      */
     public function client()
     {
-        return $this->belongsTo(ClientManagerClient::class);
+        return $this->belongsTo(Client::class);
     }
 
     /**

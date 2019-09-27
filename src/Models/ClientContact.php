@@ -8,9 +8,11 @@ use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
 
-class ClientManagerClient extends Model implements HasMedia
+class ClientContact extends Model implements HasMedia
 {
     use HasMediaTrait;
+
+    protected $table = "client_manager_client_contacts";
 
     protected $fillable = [
         'name'
@@ -23,7 +25,7 @@ class ClientManagerClient extends Model implements HasMedia
      */
     public function testimonials(): HasMany
     {
-        return $this->hasMany(ClientManagerTestimonial::class);
+        return $this->hasMany(Testimonial::class);
     }
 
     /**

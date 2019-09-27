@@ -7,10 +7,11 @@ use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\Tags\HasTags;
 
-class ClientManagerCaseStudy extends Model implements HasMedia
+class CaseStudy extends Model implements HasMedia
 {
-
     use HasMediaTrait, HasTags;
+
+    protected $table = "client_manager_case_studies";
 
     protected $fillable = [
         'title',
@@ -21,7 +22,7 @@ class ClientManagerCaseStudy extends Model implements HasMedia
 
     public function client()
     {
-        return $this->belongsTo(ClientManagerClient::class);
+        return $this->belongsTo(Client::class);
     }
 
     /**
