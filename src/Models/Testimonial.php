@@ -6,15 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class Testimonial extends Model implements HasMedia
+class Testimonial extends Model
 {
-    use HasMediaTrait;
-
     protected $table = "client_manager_testimonials";
 
     protected $fillable = [
-        'employee_name',
-        'employee_position',
+        'client_manager_client_id',
+        'client_manager_client_contact_id',
         'content',
     ];
 
@@ -27,10 +25,10 @@ class Testimonial extends Model implements HasMedia
     }
 
     /**
-    * Register a media collection for the featured Case Study image
+     * The contact that this testimonial belongs to
      */
-    public function registerMediaCollections()
+    public function clientContact()
     {
-        $this->addMediaCollection('person_image')->singleFile();
+        return $this->belongsTo(ClientContact::class);
     }
 }

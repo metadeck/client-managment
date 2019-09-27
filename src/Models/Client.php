@@ -16,11 +16,11 @@ class Client extends Model implements HasMedia
     protected $table = "client_manager_clients";
 
     protected $fillable = [
-        'name'
+        'title'
     ];
 
     /**
-     * The tesimonials from this client
+     * The testimonials from this client
      *
      * @return HasMany
      */
@@ -30,11 +30,21 @@ class Client extends Model implements HasMedia
     }
 
     /**
+     * The projects worked on for this client
+     *
+     * @return HasMany
+     */
+    public function projects(): HasMany
+    {
+        return $this->hasMany(Project::class);
+    }
+
+    /**
      * Register a media collection for the user profile image
      */
     public function registerMediaCollections()
     {
-        $this->addMediaCollection('client_logo')->singleFile();
+        $this->addMediaCollection('logo')->singleFile();
     }
 
     /**

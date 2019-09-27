@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientManagerTestimonialsTable extends Migration
+class CreateClientManagerCaseStudiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateClientManagerTestimonialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('client_manager_testimonials', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('client_manager_client_id');
-            $table->string('employee_name');
-            $table->string('employee_position');
+        Schema::create('client_manager_case_studies', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedBigInteger('client_manager_project_id');
+            $table->string('title');
+            $table->text('preview_content');
             $table->text('content');
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ class CreateClientManagerTestimonialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('client_manager_testimonials');
+        Schema::drop('client_manager_case_studies');
     }
 }

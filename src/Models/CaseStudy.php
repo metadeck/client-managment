@@ -3,6 +3,7 @@
 namespace Metadeck\ClientManager\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\Tags\HasTags;
@@ -14,15 +15,20 @@ class CaseStudy extends Model implements HasMedia
     protected $table = "client_manager_case_studies";
 
     protected $fillable = [
+        'client_manager_project_id',
         'title',
         'preview_content',
-        'content',
-        'project_type'
+        'content'
     ];
 
-    public function client()
+    /**
+     * The project that this case study belongs to
+     *
+     * @return BelongsTo
+     */
+    public function project()
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(Project::class);
     }
 
     /**

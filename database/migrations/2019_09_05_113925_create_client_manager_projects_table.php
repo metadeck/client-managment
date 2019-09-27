@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientManagerClientContactsTable extends Migration
+class CreateClientManagerProjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateClientManagerClientContactsTable extends Migration
      */
     public function up()
     {
-        Schema::create('client_manager_client_contacts', function (Blueprint $table) {
+        Schema::create('client_manager_projects', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('title');
+            $table->text('description');
             $table->unsignedBigInteger('client_manager_client_id');
-            $table->string('name');
-            $table->string('email');
-            $table->string('position');
+            $table->unsignedBigInteger('client_manager_project_type_id');
+            $table->double('estimate_price',  8, 2);
+            $table->double('cost',  8, 2);
+            $table->double('billed_price',  8, 2);
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ class CreateClientManagerClientContactsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('client_manager_client_contacts');
+        Schema::dropIfExists('client_manager_projects');
     }
 }
